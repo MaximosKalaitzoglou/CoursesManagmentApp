@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_layout}">
+<head>
+<title>Student Courses</title>
+</head>
+<body>
+	<section layout:fragment="content">
+		<div class="container">
+			<h1>Student Statistics for course: <span th:text="${courseId}"></span></h1>
+			<div class="row">
+				<div class="col">
+					<h3> average: <span th:text="${courseStats.weightedAverage}">average</span></h3>
+					<h3> min: <span th:text="${courseStats.min}">min</span></h3>
+					<h3> max: <span th:text="${courseStats.max}">max</span></h3>
+					<h3> mean: <span th:text="${courseStats.mean}">mean</span></h3>
+					<h3> stdDeviation: <span th:text="${courseStats.stdDeviation}">stdDeviation</span></h3>
+					<h3> variance: <span th:text="${courseStats.variance}">variance</span></h3>
+					<h3> percentiles: <span th:text="${courseStats.percentiles}">percentiles</span></h3>
+					<h3> skewness: <span th:text="${courseStats.skewness}">skewness</span></h3>
+					<h3> kurtosis: <span th:text="${courseStats.kurtosis}">kurtosis</span></h3>
+					<h3> median: <span th:text="${courseStats.median}">median</span></h3>
+					<br />
+					<a th:href="@{/courses}">Back to list of Courses</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>

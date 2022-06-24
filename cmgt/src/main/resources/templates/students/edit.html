@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_layout}">
+<head>
+<title>Course Creation form</title>
+</head>
+<body>
+	<section layout:fragment="content">
+		<h2>Student edit form</h2>
+		<div class="row">
+			<div class="col">
+				<form action="#" th:action=@{/students/edit/{id}(id=${student.id})} th:object="${student}" method="post">
+					<div class="mb-3">
+						<label for="id" class="form-label">Student Id</label>
+						<input type="number" class="form-control" id="id" hidden="hidden" aria-describedby="idHelp" th:field="*{id}">
+						<input type="number" class="form-control" id="id2" disabled=disabled aria-describedby="id2Help" th:field="*{id}">
+						<div id="idHelp" class="form-text">Student's unique identifier</div>
+					</div>
+					<div class="mb-3">
+						<label for="name" class="form-label">Student Name</label>
+						<input type="text" class="form-control" id="name" aria-describedby="nameHelp" th:field="*{name}">
+						<div id="nameHelp" class="form-text">First name</div>
+					</div>
+					<div class="mb-3">
+						<label for="surname" class="form-label">Student Surname</label>
+						<input type="text" class="form-control" id="surname" aria-describedby="nameHelp" th:field="*{surname}">
+						<div id="nameHelp" class="form-text">Last name</div>
+					</div>
+					<div class="mb-3">
+						<label for="semester" class="form-label">Semester</label>
+						<input type="number" class="form-control" id="semester" aria-describedby="semesterHelp" th:field="*{semester}">
+						<div id="semesterHelp" class="form-text">Semester</div>
+					</div>
+					<div class="mb-3">
+						<label for="yearOfEnrollment" class="form-label">Year</label>
+						<input type="text" placeholder="yyyy" class="form-control" id="yearOfEnrollment" aria-describedby="yearHelp" th:field="*{yearOfEnrollment}">
+						<div id="yearHelp" class="form-text">Year of Enrollment</div>
+					</div>
+					<p>
+						<input type="submit" class="btn btn-primary" value="Submit" />
+						<br />
+						<a th:href="@{/students}">Back to list of Students</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<div layout:fragment="js_scripts">
+	</div>
+</body>
+</html>

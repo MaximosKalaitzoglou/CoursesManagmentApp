@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_layout}">
+<head>
+<title>Course Creation form</title>
+</head>
+<body>
+	<section layout:fragment="content">
+		<h2>Course creation form</h2>
+		<div class="row">
+			<div class="col">
+				<form action="#" th:action=@{/courses/create} th:object="${course}" method="post">
+					<div class="mb-3">
+						<label for="id" class="form-label">Course Id</label>
+						<input type="number" class="form-control" id="id" aria-describedby="idHelp" th:field="*{id}">
+						<div id="idHelp" class="form-text">A course's unique identifier</div>
+					</div>
+					<div class="mb-3">
+						<label for="name" class="form-label">Course Name</label>
+						<input type="text" class="form-control" id="name" aria-describedby="nameHelp" th:field="*{name}">
+						<div id="nameHelp" class="form-text">Course's name</div>
+					</div>
+					<div class="mb-3">
+						<label for="description" class="form-label">Course Description</label>
+						<input type="text" class="form-control" id="description" aria-describedby="descriptionHelp" th:field="*{description}">
+						<div id="descriptionHelp" class="form-text">Course's description</div>
+					</div>
+					<div class="mb-3">
+						<label for="ects" class="form-label">ECTS</label>
+						<input type="text" class="form-control" id="ects" aria-describedby="ectsHelp" th:field="*{ects}">
+						<div id="ectsHelp" class="form-text">ECTS</div>
+					</div>
+					<div class="mb-3">
+						<label for="semester" class="form-label">Semester</label>
+						<input type="text" class="form-control" id="semester" aria-describedby="semesterHelp" th:field="*{semester}">
+						<div id="semesterHelp" class="form-text">Semester</div>
+					</div>
+					<div class="mb-3">
+						<label for="year" class="form-label">Course Year</label>
+						<input type="text" placeholder="yyyy" class="form-control" id="year" aria-describedby="yearHelp" th:field="*{year}">
+						<div id="yearHelp" class="form-text">Year</div>
+					</div>
+					<p>
+						<input type="submit" class="btn btn-primary" value="Submit" />
+						<input type="reset" class="btn btn-danger" value="Reset" />
+						<br />
+						<a th:href="@{/courses}">Back to list of Courses</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<div layout:fragment="js_scripts">
+	</div>
+</body>
+</html>

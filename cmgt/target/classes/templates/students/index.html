@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_layout}">
+<head>
+<title>Student Courses</title>
+</head>
+<body>
+	<section layout:fragment="content">
+		<h2>Students List</h2>
+		<div class="row">
+			<div class="col">
+				<a class="btn btn-primary" th:href="@{/students/create}" role="button">Create Student</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="table-responsive">
+					<table class="table table-striped table-sm">
+						<thead>
+							<tr>
+								<th scope="col">Id</th>
+								<th scope="col">Name</th>
+								<th scope="col">Surname</th>
+								<th scope="col">Semester</th>
+								<th scope="col">Year</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="student: ${students}">
+								<td th:text="${student.id}" />
+								<td th:text="${student.name}" />
+								<td th:text="${student.surname}" />
+								<td th:text="${student.semester}" />
+								<td th:text="${student.yearOfEnrollment}" />
+								<td>
+									<div>
+										<a th:href="@{/students/{id}/courses/(id=${student.id})}">Courses</a>
+										| <a th:href="@{/students/edit/{id}(id=${student.id})}">Edit
+											<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+										</a> | 
+										
+										<form action="#"
+										th:action="@{/students/delete/{id}(id=${student.id})}"
+										method="post">
+										<input type="submit" class="btn btn-sm btn-link text-danger"
+											value="Delete" /> <i class="fa fa-trash"
+													aria-hidden="true"></i>
+										</form>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

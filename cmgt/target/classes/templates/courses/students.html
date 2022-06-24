@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_layout}">
+<head>
+<title>Course Students</title>
+</head>
+<body>
+	<section layout:fragment="content">
+		<h2>
+			Students list in course: <span th:text="${cid}"></span>
+		</h2>
+		<div class="row">
+			<div class="col">
+				<a class="btn btn-primary"
+					th:href="@{/courses/{id}/mapStudents(id=${cid})}" role="button">Map
+					existing student to course</a> <a class="btn btn-primary"
+					th:href="@{/students/create/}" role="button">Create a new
+					student</a>
+
+				<!--
+					  <a class="btn btn-primary" th:href="@{/students/create/{cid}(cid=${cid})}" role="button">Create a new student and map to course</a>
+					 -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="table-responsive">
+					<table class="table table-striped table-sm">
+						<thead>
+							<tr>
+								<th scope="col">Id</th>
+								<th scope="col">Name</th>
+								<th scope="col">Surname</th>
+								<th scope="col">Semester</th>
+								<th scope="col">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="student: ${students}">
+								<td th:text="${student.student.id}" />
+								<td th:text="${student.student.name}" />
+								<td th:text="${student.student.surname}" />
+								<td th:text="${student.student.semester}" />
+								<td><a class="btn btn-md btn-link"
+									th:href="@{/students/{sid}/grades/{cid}(sid=${student.student.id},cid=${cid})}">Edit
+										Grades</a>
+									<form action="#"
+										th:action="@{/courses/{id}/removeStudent/{sid}(id=${cid},sid=${student.student.id})}"
+										method="post">
+										<input type="submit" class="btn btn-sm btn-link text-danger"
+											value="Remove student" /> <i class="fa fa-trash"
+											aria-hidden="true"></i>
+									</form></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

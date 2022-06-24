@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_layout}">
+<head>
+<title>Edit Student course grade</title>
+</head>
+<body>
+	<section layout:fragment="content">
+		<h2>Edit Student grades for course</h2>
+		<div class="row">
+			<div class="col">
+				<form action="#" th:action=@{/students/{sid}/grades/{cid}(sid=${student.id},cid=${course.course.id})} th:object="${grades}" method="post">
+					<div class="mb-3">
+						<label for="final_grade" class="form-label">Final grade</label>
+						<input type="text" class="form-control" id="final_grade" aria-describedby="final_gradeHelp" th:field="*{final_grade}">
+						<div id="final_gradeHelp" class="form-text">Student's final grade for course</div>
+					</div>
+					<div class="mb-3">
+						<label for="project_grade" class="form-label">Project grade</label>
+						<input type="text" class="form-control" id="project_grade" aria-describedby="project_gradeHelp" th:field="*{project_grade}">
+						<div id="project_gradeHelp" class="form-text">Student's project grade for course</div>
+					</div>
+					<p>
+						<input type="submit" class="btn btn-primary" value="Submit" />
+						<br />
+						<a th:href="@{/students}">Back to list of courses</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<div layout:fragment="js_scripts">
+	</div>
+</body>
+</html>

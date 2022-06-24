@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Myy803</title>
+
+
+<style>
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
+.body-container {
+	width: auto;
+	max-width: 1024px;
+	padding: 0 15px;
+}
+</style>
+
+
+</head>
+<body class="d-flex flex-column h-100">
+
+	<div id="navbar-section" class="">
+		<nav class="navbar navbar-dark bg-dark navbar-expand-md">
+			<div class="container">
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav9"
+					aria-controls="navbarNav9" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav9">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item active"><a class="nav-link" href="/">Home
+								<span class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" href="/courses">Courses</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="/students">Students</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+	</div>
+	<!-- Begin page content -->
+	<main class="flex-shrink-0">
+		<div class="container body-container">
+			<section layout:fragment="content">
+				<p>Your page content goes here</p>
+			</section>
+		</div>
+	</main>
+
+	<footer class="footer mt-auto py-3 bg-light">
+		<div class="container body-container">
+			<span class="text-muted">Myy803 - Maximos Kalaitzoglou. ©2022</span>
+		</div>
+	</footer>
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+	<div layout:fragment="js_scripts">
+	</div>
+
+</body>
+</html>

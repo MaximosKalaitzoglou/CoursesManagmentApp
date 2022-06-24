@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_layout}">
+<head>
+<title>Student course details</title>
+</head>
+<body>
+	<section layout:fragment="content">
+		<p>Student course details</p>
+
+		<div class="table-responsive">
+			<table class="table table-striped table-sm">
+				<thead>
+					<tr>
+						<th scope="col">Course Id</th>
+						<th scope="col">Student Id</th>
+						<th scope="col">Course Name</th>
+						<th scope="col">Project grade</th>
+						<th scope="col">Final grade</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="course: ${student.courses}">
+						<td th:text="${course.course.id}" />
+						<td th:text="${course.student.id}" />
+						<td th:text="${course.course.name}" />
+						<td th:text="${course.project_grade}" />
+						<td th:text="${course.grade}" />
+						<td>
+							<!-- <a 
+							th:href="@{/instructors/{id}/(id=${course.instructor[0].id})}"
+							th:unless="${#lists.isEmpty(course.instructor)}>Instructor</a> -->
+							<a
+							th:href="@{/students/{sid}/grades/{cid}(sid=${student.id},cid=${course.course.id})}">Edit
+								Grades</a>
+							<a
+							th:href="@{/stats/course/{id}(id=${course.course.id})}">Edit
+								Grades</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p>
+			<a th:href="@{/students}">Back to list of Students</a>
+		</p>
+	</section>
+</body>
+</html>
